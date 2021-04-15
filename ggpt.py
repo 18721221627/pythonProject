@@ -4,14 +4,12 @@
 
 import time
 from selenium import webdriver
-from chaojiying import Chaojiying_Client
 from PIL import Image
+from Test import Chaojiying_Client
 from selenium.webdriver.chrome.options import Options
 
 # 创建一个浏览器
-browser = webdriver.Chrome()
-#browser = webdriver.Safari()
-
+browser = webdriver.Chrome(r'D:\chromedriver.exe')
 chrome_options = Options()
 
 # 此步骤很重要，设置为开发者模式，防止被各大网站识别出来使用了Selenium
@@ -29,16 +27,6 @@ browser.get(url)
 time.sleep(3)
 
 browser.save_screenshot('login.png')
-
-image = Image.open('login.png')
-weight, height = image.size
-# 这里的比例需要自己摸索，实际上只需要横坐标准确即可--这里是关键反复调试
-box = (weight * 1/2 - 70, height * 1/2 - 230, weight * 1/2 + 630, height * 1/3 + 175)
-region = image.crop(box)
-region.save('yzm.png')
-
-
-'''
 #验证码元素
 yzm_btn = browser.find_element_by_xpath('//*[@id="imgCode_img"]')
 
@@ -62,7 +50,7 @@ login_pic = Image.open('login.png')
 # 通过上下左右的值，去截取验证码
 yzm_pic = login_pic.crop(val)
 yzm_pic.save('yzm.png')
-'''
+
 
 #调用超级鹰的方法！
 chaojiying = Chaojiying_Client('18721221627', 'JABIL12345', '910775')
@@ -72,7 +60,7 @@ im = open('yzm.png', 'rb').read()
 #将要识别的验证码类型传过去---具体验证码类型参考第三方打码平台代码！
 re = chaojiying.PostPic(im, 3004)
 print('我是返回数据', re)
-#返回的数据是个json我们要截取，pic_str这个就是验证码识别的结果！先切割再选择！
+#返回的数据是个json我们要获取pic_str，这个就是验证码识别的结果！
 distance = re['pic_str']
 
 
