@@ -14,7 +14,7 @@ BORDER = 6
 class CrackGeetest():
     def __init__(self):
         self.url = 'https://account.geetest.com/login'
-        self.browser = webdriver.Chrome(r'D:\chromedriver.exe')
+        self.browser = webdriver.Chrome()
         #设置显示等待时间
         self.wait = WebDriverWait(self.browser, 20)
         self.email = EMAIL

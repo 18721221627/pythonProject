@@ -12,7 +12,7 @@ from selenium.webdriver.chrome.options import Options
 from chaojiying import Chaojiying_Client
 
 # 创建一个浏览器
-browser = webdriver.Chrome(r'D:\chromedriver.exe')
+browser = webdriver.Chrome()
 chrome_options = Options()
 
 # 此步骤很重要，设置为开发者模式，防止被各大网站识别出来使用了Selenium

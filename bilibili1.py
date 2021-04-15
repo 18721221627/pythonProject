@@ -26,7 +26,7 @@ class main():
 
     # 启动浏览器
     def Launch_browser(self):
-        self.driver = webdriver.Chrome(r'D:\chromedriver.exe')
+        self.driver = webdriver.Chrome()
         self.wait = WebDriverWait(self.driver, 10, 0.5)
         self.driver.get(self.url)
         self.driver.maximize_window()

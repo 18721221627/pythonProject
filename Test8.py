@@ -5,7 +5,7 @@ from PIL import Image
 #12306 已经识别！
 import time
 
-driver = webdriver.Chrome(r'D:\chromedriver.exe')
+driver = webdriver.Chrome()
 driver.maximize_window()  # 最大化浏览器
 driver.get('https://kyfw.12306.cn/otn/resources/login.html')
 # 防止12306禁止selenium
