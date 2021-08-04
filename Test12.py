@@ -3,7 +3,7 @@ from selenium import webdriver
 
 
 driver = webdriver.Remote(
-command_executor='http://192.168.137.151:5555/wd/hub',
+command_executor='http://10.242.130.113:5555/wd/hub',
 desired_capabilities={'browserName': 'firefox'}
 )
 
