@@ -3,7 +3,7 @@
 import base64
 import json
 import requests
-
+#快识别接口
 def base64_api(uname,pwd,img,tid):
     '''
     验证码识别接口

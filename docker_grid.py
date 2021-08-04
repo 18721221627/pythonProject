@@ -10,7 +10,7 @@ desired_capabilities={'browserName': 'firefox'}
 driver.get('https://www.baidu.com')
 print("start run")
 
-driver.find_element_by_id("kw").send_keys("docker selenium")
+driver.find_element_by_id("kw").send_keys("docker ")
 driver.find_element_by_id("su").click()
 driver.save_screenshot('login1.png')
 

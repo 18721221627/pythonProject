@@ -15,7 +15,7 @@ from chaojiying import Chaojiying_Client
 import requests
 from hashlib import md5
 
-
+#没有缺口的拼图滑块
 class main():
     def __init__(self):
         self.url = 'http://www.pkulaw.cn/cluster_form.aspx?Db=chl&menu_item=law&EncodingName=&clust_param=0/XC02&keyword=&range=name'

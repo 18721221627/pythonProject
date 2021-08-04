@@ -6,9 +6,9 @@ import time
 import os
 import pytest
 import allure
+from chaojiying import Chaojiying_Client
 from selenium import webdriver
 from PIL import Image
-from Test import Chaojiying_Client
 from selenium.webdriver.chrome.options import Options
 
 # 创建一个浏览器
