@@ -3,6 +3,9 @@
 
 import requests
 from hashlib import md5
+import os
+import pytest
+@pytest.fixture(scope="session")
 
 class Chaojiying_Client(object):
 

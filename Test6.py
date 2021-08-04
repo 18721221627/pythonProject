@@ -9,7 +9,7 @@ from Test import Chaojiying_Client
 from selenium.webdriver.chrome.options import Options
 
 # 创建一个浏览器
-browser = webdriver.Chrome()
+browser = webdriver.Safari()
 chrome_options = Options()
 
 # 此步骤很重要，设置为开发者模式，防止被各大网站识别出来使用了Selenium
@@ -30,27 +30,13 @@ browser.save_screenshot('login.png')
 #验证码元素
 yzm_btn = browser.find_element_by_xpath('//*[@id="app"]/div[2]/div/div/div[2]/div[1]/div[3]/div/img')
 
-# 获取图片元素的位置
-loc = yzm_btn.location
-# 获取图片的宽高-----如果自己的电脑分辨率不是百分百 那么要调整！
-size = yzm_btn.size
-left = loc['x'] # 计算左边界
-top = loc['y']  # 计算上边界
-right = (loc['x'] + size['width'])    # 计算右边界
-botom = (loc['y'] + size['height'])   # 计算下边界
-# 将上下左右边界值放到元祖中（注意顺序：左 上 右  下）
-local = (left, top, right, botom)
-
-
-botom = yzm_btn.location['y']+yzm_btn.size['height']
-val = (left, top, right, botom)
-print(left,top,right,botom)
-# 打开网页截图
-login_pic = Image.open('login.png')
-# 通过上下左右的值，去截取验证码
-yzm_pic = login_pic.crop(val)
-yzm_pic.save('yzm.png')
-
+image = Image.open('login.png')
+weight, height = image.size
+    # 这里是重点要反复的调--------------------------------------调试将整个验证码区域传给第三方打码平台
+        # weight第一个调试左边 height第一个提示上边  weight第二个调试右边  height第二个调试下边
+box = (weight * 1 / 2 +735, height * 1 / 2 , weight * 1 / 2 +998, height * 1 / 3+335 )
+region = image.crop(box)
+region.save('yzm.png')
 
 #调用超级鹰的方法！
 chaojiying = Chaojiying_Client('18721221627', 'JABIL12345', '910775')

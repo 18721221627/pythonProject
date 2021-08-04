@@ -22,7 +22,6 @@ time.sleep(3)
 browser.maximize_window()
 browser.get(url)
 
-
 #将当前页面截图保存在当前项目
 time.sleep(3)
 
