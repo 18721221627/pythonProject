@@ -21,7 +21,7 @@ chrome_options = Options()
 time.sleep(1)
 # 访问登录页面
 url = 'http://test-oms.95155.com/website.jsp'
-time.sleep(3)
+time.sleep(2)
 # 设置界面最大化
 browser.maximize_window()
 browser.get(url)
